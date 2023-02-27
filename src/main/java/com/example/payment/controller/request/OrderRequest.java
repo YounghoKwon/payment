@@ -1,20 +1,19 @@
 package com.example.payment.controller.request;
 
-import com.example.payment.entity.Money;
-import java.math.BigDecimal;
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.Value;
 
 @Value
 public class OrderRequest {
 
-    Money price;
-    long productIdx;
-    int qty;
+    long userIdx;
+    List<OrderProductRequest> orderProductList;
 
-    public OrderRequest(long price, long productIdx, int qty) {
-        this.price = new Money(BigDecimal.valueOf(price));
-        this.productIdx = productIdx;
-        this.qty = qty;
+    public List<Long> getProductIdxList() {
+        return orderProductList.stream()
+            .map(OrderProductRequest::getProductIdx)
+            .collect(Collectors.toList());
     }
 
 }

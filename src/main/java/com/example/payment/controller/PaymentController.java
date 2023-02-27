@@ -18,7 +18,7 @@ public class PaymentController {
     @PostMapping("/order")
     public ResponseEntity<Object> order(@RequestBody OrderRequest orderRequest) {
         paymentFacade.order(orderRequest);
-        return ResponseEntity.ok("내가 삽니다~");
+        return ResponseEntity.ok().build();
     }
 
 }
