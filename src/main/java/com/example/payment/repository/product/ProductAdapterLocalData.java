@@ -4,7 +4,7 @@ import com.example.payment.entity.Product;
 
 import java.util.List;
 
-public class ProductAdapterProxy implements ProductAdapterInterFace {
+public class ProductAdapterLocalData implements ProductAdapterInterFace {
     @Override
     public List<Product> getProductInfoListByidxList(List<Long> productIdxList) {
         return  List.of(

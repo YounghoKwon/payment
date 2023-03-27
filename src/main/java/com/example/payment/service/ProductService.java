@@ -1,9 +1,8 @@
 package com.example.payment.service;
 
 import com.example.payment.entity.Product;
-import com.example.payment.repository.payment.PaymentAdapterProxy;
 import com.example.payment.repository.product.ProductAdapterInterFace;
-import com.example.payment.repository.product.ProductAdapterProxy;
+import com.example.payment.repository.product.ProductAdapterLocalData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +15,7 @@ public class ProductService {
     private final ProductAdapterInterFace productAdapterInterFace;
     @Autowired
     public ProductService() {
-        this.productAdapterInterFace = new ProductAdapterProxy();
+        this.productAdapterInterFace = new ProductAdapterLocalData();
     }
 
     public List<Product> getProductInfoList(final List<Long> productIdxList) {
